@@ -1,14 +1,13 @@
 package Graph;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
+public class BFS {
 
-public class ConstructionOfGraph {
+    public  static void main(String[] args) {
 
-    public static void main(String[] args) {
-        
+
         Scanner sc = new Scanner(System.in);
         int noOfEdges = sc.nextInt();
         int noOfVertex = sc.nextInt();
@@ -20,6 +19,17 @@ public class ConstructionOfGraph {
             edges[i][1]=sc.nextInt();
         }
 
+        ArrayList<ArrayList<Integer>> graph = ConstructionOfGraph(noOfVertex,noOfEdges,edges);
+
+        System.out.println("This is Final graph from main method");
+        System.out.println(graph);
+
+
+        
+    }
+
+    public static ArrayList<ArrayList<Integer>> ConstructionOfGraph(int noOfVertex,int noOfEdges,int[][]edges)
+    {
         ArrayList<ArrayList<Integer>> graph= new ArrayList<>();
         for(int i=0;i<noOfVertex;i++)
         {
@@ -33,7 +43,7 @@ public class ConstructionOfGraph {
             int v = edges[i][1];
 
             graph.get(u).add(v);
-            //graph.get(v).add(u);
+            graph.get(v).add(u);
 
         }
         System.out.println("This is A Directed Graph ");
@@ -47,23 +57,13 @@ public class ConstructionOfGraph {
             }
             
         }
+
+        return graph;
     }
+
+    public static void BFS(ArrayList<ArrayList<Integer>>graph)
+    {
+        
+    }
+    
 }
-
-
-/**
- * ConstructionOfGraph
- */
-
- /*
-    8
-    7
-    0 1
-    1 2
-    2 3
-    0 3
-    3 4
-    4 5
-    5 6
-    4 6
- */
